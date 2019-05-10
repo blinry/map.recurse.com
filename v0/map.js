@@ -122,7 +122,7 @@ $(function() {
     var map = L.map("map", {
         minZoom: 1,
         maxZoom: 4,
-        zoom: 1,
+        zoom: 2,
         center: [0, 0],
     })
 
@@ -130,6 +130,7 @@ $(function() {
         attribution:
             'Improve the code on <a href="https://github.com/blinry/map.recurse.com">GitHub</a>!',
         noWrap: true,
+        detectRetina: true,
     }).addTo(map)
 
     $("#btnmarker").on("click", function(event) {
@@ -198,7 +199,6 @@ $(function() {
                 (1000 * pos.lng).toFixed(0),
             ].join("_")
             window.location.hash = pos
-            $("#url").val("https://map.recurse.com/#" + pos)
         } else {
             window.location.hash = ""
         }
