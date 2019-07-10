@@ -120,7 +120,7 @@ $(function() {
     })
 
     var map = L.map("map", {
-        minZoom: 1,
+        minZoom: 0,
         maxZoom: 4,
         zoom: 2,
         center: [0, 0],
@@ -164,7 +164,7 @@ $(function() {
     function addMarker(pos) {
         removeMarker()
         if (pos) {
-            map.setView(pos, 3)
+            map.setView(pos, 2)
             marker = L.marker(pos, {
                 icon: Icon,
             })
@@ -178,7 +178,6 @@ $(function() {
             marker.on("dragend", setHash)
             setHash()
             marker.addTo(map)
-            $("#footer").addClass("visible")
         }
     }
 
@@ -186,7 +185,6 @@ $(function() {
         if (marker) {
             map.removeLayer(marker)
             marker = false
-            $("#footer").removeClass("visible")
             setHash()
         }
     }
@@ -203,8 +201,4 @@ $(function() {
             window.location.hash = ""
         }
     }
-
-    $("#url").on("click", function() {
-        $("#url").select()
-    })
 })
